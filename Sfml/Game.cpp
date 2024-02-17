@@ -8,7 +8,7 @@ using namespace std;
 void Begin(const sf::Window& window)
 {
 	//przeszkuje wszystkie pliki z tego folderu /resources/textures/ Jak wsadzisz do innego folderu to masz wpierdol
-	for (auto& file : filesystem::directory_iterator("C:/Users/PC/source/repos/Sfml/Release/resources/textures/"))
+	for (auto& file : filesystem::directory_iterator("./resources/textures/"))
 	{
 		if(file.is_regular_file() && file.path().extension() == ".png" ||
 			file.path().extension() == ".jpg")

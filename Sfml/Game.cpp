@@ -7,6 +7,7 @@ using namespace std;
 
 void Begin(const sf::Window& window)
 {
+	//przeszkuje wszystkie pliki z tego folderu /resources/textures/
 	for (auto& file : filesystem::directory_iterator("C:/Users/PC/source/repos/Sfml/Release/resources/textures/"))
 	{
 		if(file.is_regular_file() && file.path().extension() == ".png" ||
@@ -26,7 +27,7 @@ void Update(float deltaTime)
 {
 
 }
-
+//renderuje tekstury na razie block z minecraftu
 void Render(Renderer& renderer)
 {
 	renderer.Draw(Resources::textures["block.png"],

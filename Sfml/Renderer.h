@@ -4,7 +4,7 @@
 class Renderer
 {
 public:
-	Renderer(sf::RenderTarget& target);
+	Renderer(sf::RenderTarget& target); 
 
 	void Draw(const sf::Texture& texture, const sf::Vector2f& position,
 		const sf::Vector2f& size);

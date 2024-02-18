@@ -14,7 +14,7 @@ int main() {
 
     sf::RenderWindow window(sf::VideoMode(1200, 900), "Platformer");
     sf::Clock deltaClock;
-    Camera camera;
+    
     Renderer renderer(window);
 
     

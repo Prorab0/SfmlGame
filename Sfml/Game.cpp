@@ -1,9 +1,7 @@
 #include "Game.h"
 #include "Resources.h"
 #include "Map.h"
-#include "Player.h"
-#include <SFML/Graphics.hpp>
-
+#include "Physics.h"
 
 
 
@@ -12,7 +10,8 @@ using namespace std;
 
 Map mapp (16.0f);
 Camera camera(320.0f);
-Player player;
+
+const float movementSpeed = 180.0f;
 
 void Begin(const sf::Window& window)
 {
@@ -30,22 +29,26 @@ void Begin(const sf::Window& window)
 			
 		}
 	}
+	Physics::Init();
+
 	sf::Image image;
 	image.loadFromFile("map.png");
-	player.position = mapp.CreateFromImage(image);
+	mapp.CreateFromImage(image);
+
+	camera.position = sf::Vector2f(160.0f,160.0f);
 }
 
 void Update(float deltaTime)
 {
-	player.Update(deltaTime);
-
-	camera.position = player.position;
+	Physics::Update(deltaTime);
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		camera.position.x += movementSpeed * deltaTime;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		camera.position.x -= movementSpeed * deltaTime;
 }
 //renderuje tekstury na razie block z minecraftu
 void Render(Renderer& renderer)
 {
 	mapp.Draw(renderer);
-
-	player.Draw(renderer);
 }
 

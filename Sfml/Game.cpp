@@ -5,13 +5,11 @@
 
 
 
-
 using namespace std;
 
 Map mapp (16.0f);
 Camera camera(320.0f);
 
-const float movementSpeed = 180.0f;
 
 void Begin(const sf::Window& window)
 {
@@ -33,7 +31,6 @@ void Begin(const sf::Window& window)
 	image.loadFromFile("map.png");
 	mapp.CreateFromImage(image);
 
-	camera.position = sf::Vector2f(160.0f,160.0f);
 }
 
 void Update(float deltaTime)
